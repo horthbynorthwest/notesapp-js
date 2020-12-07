@@ -1,5 +1,11 @@
-class Circle {
-  constructor() {
-    this.radius = 10;
+'use strict';
+
+class Note{
+  constructor(text) {
+    this.text = text;
   }
+
+  getText() {
+   return this.text
+ };
 }

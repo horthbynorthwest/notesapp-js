@@ -1,6 +1,13 @@
 class Assert{
-  equality(a, b) {
+  toEqual(a, b) {
     if (a == b){
+        console.log('pass')
+    } else {
+        throw new Error("test failed: " + a + " is not equal to " + b);
+    }
+  }
+  toNotEqual(a, b) {
+    if (a !== b){
         console.log('pass')
     } else {
         console.log('fail')
