@@ -1,5 +1,7 @@
 'use strict';
 
+// notes.js
+
 function instantiatedNoteObject() {
   var assert = new Assert();
   var note = new Note('text');
@@ -18,39 +20,22 @@ function instantiatesWithText() {
 
 instantiatesWithText();
 
-//   function testCircleRadiusDefaultsTo10() {
-//   var assert = new Assert();
-//   var circle = new Circle();
-//   console.log('testCircleRadiusDefaultsTo10')
-//   assert.toEqual(circle.radius, 10);
-// };
-//
-//   testCircleRadiusDefaultsTo10();
-//
-//   function testCircleRadiusIsNotEq20() {
-//   var assert = new Assert();
-//   var circle = new Circle();
-//   console.log('testCircleRadiusIsNotEq20')
-//   assert.toNotEqual(circle.radius, 20);
-// };
-//
-//   testCircleRadiusIsNotEq20();
-//
-//
-//   function testCircleRadiusDefaultsTo10IsTrue() {
-//   var assert = new Assert();
-//   var circle = new Circle();
-//   console.log('testCircleRadiusDefaultsTo10IsTrue')
-//   assert.isTrue(circle.radius === 10);
-// };
-//
-//   testCircleRadiusDefaultsTo10IsTrue();
-//
-//   function testCircleRadiusIsNot20() {
-//   var assert = new Assert();
-//   var circle = new Circle();
-//   console.log('testCircleRadiusIsNot20')
-//   assert.isFalse(circle.radius === 20);
-// };
-//
-//   testCircleRadiusIsNot20();
+// note-list-model.js
+
+function instantiatedNoteListObject() {
+  var assert = new Assert();
+  var noteList = new NoteList();
+  console.log('instantiatedNoteListObject')
+  assert.isTrue(typeof noteList == 'object')
+}
+
+instantiatedNoteListObject();
+
+function instantiatedWithEmptyArray() {
+  var assert = new Assert();
+  var noteList = new NoteList();
+  console.log('instantiatedWithEmptyArray')
+  assert.toEqual(noteList.listNotes(), Array.isArray())
+}
+
+instantiatedWithEmptyArray();
