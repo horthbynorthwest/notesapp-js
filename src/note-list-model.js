@@ -5,18 +5,20 @@ class NoteList {
     this.list = [];
   }
 
-  // addNote(note) {
-  //   this.list.push(note)
-  // }
+  addNote(note) {
+    this.list.push(note)
+  }
 
   listNotes() {
-    // for (var i = 0, i > this.list.length; i++) {
-    //   console.log(this.list[i])
+    // for (var i = 0; i < this.list.length; i++) {
+    //   // let note = new Note(text)
+    //  this.note.getText(this.list[i]);
     // }
     return this.list;
   }
 
-  // createNote(new Note(text)){
-  //   this.list.push(note)
-  // }
+  createNote(text){
+    var note = new Note(text);
+    this.list.push(note)
+  }
 }
