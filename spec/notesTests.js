@@ -35,7 +35,7 @@ function instantiatedWithEmptyArray() {
   var assert = new Assert();
   var noteList = new NoteList();
   console.log('instantiated with empty array')
-  assert.toEqual(noteList.listNotes(), Array.isArray())
+  assert.toEqual(noteList.list, Array.isArray())
 }
 
 instantiatedWithEmptyArray();
@@ -47,7 +47,7 @@ function pushesANoteIntoArray() {
   var noteList = new NoteList();
   console.log('pushes A Note Into Array')
   noteList.addNote(note);
-  assert.isTrue(noteList.listNotes().length === 1)
+  assert.isTrue(noteList.list.length === 1)
 }
 
 pushesANoteIntoArray();
@@ -58,8 +58,8 @@ function arrayHasPushedNote() {
   var noteList = new NoteList();
   console.log('array Has Pushed Note')
   noteList.addNote(note);
-  console.log(noteList.listNotes()[0])
-  assert.toEqual(noteList.listNotes()[0].getText(), 'hello, there')
+  console.log(noteList.listNotes())
+  assert.toEqual(noteList.listNotes(), 'hello, there ')
 }
 
 arrayHasPushedNote();
@@ -68,8 +68,32 @@ function noteListCanCreateNote() {
   var assert = new Assert();
   var noteList = new NoteList();
   console.log('note List Can Create Note');
+  // noteList.createNote('hello, there');
   noteList.createNote("I am Obi-Wan");
-  console.log(noteList.listNotes()[0])
-  assert.toEqual(noteList.listNotes()[0].getText(), "I am Obi-Wan")
+  console.log(noteList.listNotes())
+  assert.toEqual(noteList.listNotes(), "I am Obi-Wan ")
 }
 noteListCanCreateNote();
+
+// note-list-view.js
+
+function testNoteListViewStartsEmpty() { 
+      let assert = new Assert();
+      let noteList = new NoteList(); 
+      let noteView = new NoteView(noteList);
+      console.log('NoteView starts with no notes in it');
+      assert.toEqual(noteView.noteListHTML(), '<ul></ul>')
+      ; }
+  testNoteListViewStartsEmpty();
+
+   function testNoteListViewWithNotesAdded() { 
+      let assert = new Assert(); 
+      let noteList = new NoteList(); 
+      noteList.createNote('Hello World')
+      noteList.createNote('What Up?')
+      noteList.createNote('Not much, you?') 
+      let noteView = new NoteView(noteList);
+      console.log('NoteList can have notes added to it');
+      assert.toEqual(noteView.noteListHTML(), '<ul>Hello World What Up? Not much, you? </ul>');
+ }  
+testNoteListViewWithNotesAdded();

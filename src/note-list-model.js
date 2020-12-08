@@ -10,11 +10,11 @@ class NoteList {
   }
 
   listNotes() {
-    // for (var i = 0; i < this.list.length; i++) {
-    //   // let note = new Note(text)
-    //  this.note.getText(this.list[i]);
-    // }
-    return this.list;
+    var returnString = ""
+    this.list.forEach((element) => {
+      returnString = returnString + (element.text) + " ";
+    })
+    return returnString
   }
 
   createNote(text){
